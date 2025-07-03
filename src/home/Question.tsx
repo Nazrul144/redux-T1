@@ -4,23 +4,23 @@ import { Button } from "@/components/ui/button";
 
 const Question = () => {
   const { value } = useAppSelector((state) => state.quiz);
-  const quizCard = value[0];
+  
   return (
-    <div className="flex justify-center">
-      <Card className="w-[450px]">
-        <CardHeader>
-          <CardTitle>{quizCard.question}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div>
-            {quizCard.options?.map((option, index) => (
-              <Button key={index} size="lg" className="w-full mt-3">
-                {option}
-              </Button>
-            ))}
-          </div>
-          <h1 className="font-black mt-2">Correct Answer: {quizCard.correctAnswer}</h1>
-        </CardContent>
+    <div>
+      <Card className="grid grid-cols-3 gap-6">
+          {
+            value?.map((quiz, index)=>(
+              <CardContent className="border-2 border-red-500 rounded-lg p-8" key={index}>
+                <CardTitle>{quiz.question}</CardTitle>
+                <div>
+                  {quiz?.options?.map((quiz, index)=>(
+                    <Button className="w-full mt-3" key={index}>{quiz}</Button>
+                  ))}
+                </div>
+                <CardTitle className="mt-3">Answer: {quiz.correctAnswer}</CardTitle>
+              </CardContent>
+            ))
+          }
       </Card>
     </div>
   );
