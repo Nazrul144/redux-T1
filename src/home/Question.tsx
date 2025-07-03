@@ -1,16 +1,21 @@
 import { Card, CardHeader } from "@/components/ui/card";
-import { useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { Button } from "@/components/ui/button";
 import QuizControl from "./QuizControl";
+import { setAnswer } from "@/redux/features/quizSlice";
 
 
 const Question = () => {
   const { value, currentQuestionIndex, userAnswer} = useAppSelector((state) => state.quiz);
   const quizCard = value[currentQuestionIndex]
   const currentAnswer = userAnswer[currentQuestionIndex]
+  const dispatch = useAppDispatch()
 
   const handleCorrectAnswer = (ans: string)=>{
-    console.log(ans);
+    dispatch(setAnswer({
+      questionIndex: currentQuestionIndex,
+      answer: ans
+    }))
   }
 
   return (
@@ -21,7 +26,7 @@ const Question = () => {
           <div>
            {
             quizCard?.options?.map((option, index)=>(
-              <Button onClick={()=>handleCorrectAnswer(option)} key={index} className="w-full mt-3" size={"lg"}>{option}</Button>
+              <Button variant={option === currentAnswer ? "default" : "outline"} onClick={()=>handleCorrectAnswer(option)} key={index} className="w-full mt-3" size={"lg"}>{option}</Button>
             ))
            }
           </div>
