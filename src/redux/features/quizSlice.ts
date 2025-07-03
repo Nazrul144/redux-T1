@@ -13,8 +13,8 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     setAnswer: (state, action)=> {
-        const {currentIndex, answer} = action.payload
-        state.userAnswer[currentIndex] = answer
+        const {questionIndex, answer} = action.payload
+        state.userAnswer[questionIndex] = answer
     }
   },
 })

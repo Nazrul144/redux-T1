@@ -11,6 +11,8 @@ const Question = () => {
   const currentAnswer = userAnswer[currentQuestionIndex]
   const dispatch = useAppDispatch()
 
+  console.log(currentAnswer);
+
   const handleCorrectAnswer = (ans: string)=>{
     dispatch(setAnswer({
       questionIndex: currentQuestionIndex,
