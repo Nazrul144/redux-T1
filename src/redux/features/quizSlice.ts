@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { quizData } from '../../home/quizData'
 
 
 const initialState = {
-  value: 0,
+  value: quizData,
 }
 
 export const quizSlice = createSlice({
