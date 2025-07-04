@@ -9,8 +9,7 @@ function App() {
     <>
       <div>
         <Button>Click me</Button>
-        <Question />
-        <QuizSummery/>
+        {!quizComplete ? <Question/> : <QuizSummery/>}
       </div>
     </>
   );

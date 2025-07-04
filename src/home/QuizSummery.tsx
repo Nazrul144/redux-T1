@@ -1,20 +1,15 @@
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 function QuizSummery() {
   return (
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-          <CardAction>Card Action</CardAction>
+          <CardTitle>Quiz Summery</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <h3>You got 4 out of 10</h3>
         </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
       </Card>
     </div>
   );
