@@ -5,7 +5,8 @@ import { quizData } from '../../home/quizData'
 const initialState = {
   value: quizData,
   currentQuestionIndex:0,
-  userAnswer : Array(quizData.length).fill(null)
+  userAnswer : Array(quizData.length).fill(null),
+  quizComplete: false
 }
 
 export const quizSlice = createSlice({
